@@ -39,7 +39,7 @@ const CaptainLogin = () => {
       <div>
         <img
           className="w-16 mb-10"
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYQy-OIkA6In0fTvVwZADPmFFibjmszu2A0g&s"
+          src="https://www.svgrepo.com/show/505031/uber-driver.svg"
           alt=""
         />
 
