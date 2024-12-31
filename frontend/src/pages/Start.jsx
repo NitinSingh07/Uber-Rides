@@ -23,7 +23,7 @@ const Start = () => {
             Explore a seamless way to ride with Uber. Let's get started!
           </p>
           <Link
-            to="/login"
+            to="/user-login"
             className="flex items-center justify-center w-full bg-black text-white py-4 rounded-lg mt-6 text-lg sm:text-xl shadow-md hover:bg-gray-800 transition-all"
           >
             Continue
