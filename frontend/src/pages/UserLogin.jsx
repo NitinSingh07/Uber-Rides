@@ -15,8 +15,8 @@ const UserLogin = () => {
     const userData = {
       email: email,
       password: password,
-      };
-      console.log("Userdata", userData);
+    };
+    console.log("Userdata", userData);
 
     // const response = await axios.post(
     //   `${import.meta.env.VITE_BASE_URL}/users/login`,
@@ -48,7 +48,7 @@ const UserLogin = () => {
             submitHandler(e);
           }}
         >
-          <h3 className="text-lg font-medium mb-2">What's your email</h3>
+          <h3 className="text-lg font-medium mb-2">Enter your email</h3>
           <input
             required
             value={email}
