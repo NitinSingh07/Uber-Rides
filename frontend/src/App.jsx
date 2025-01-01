@@ -29,6 +29,15 @@ const App = () => {
             </UserProtectWrapper>
           }
         />
+        <Route path="/captain-home" element={<CaptainHome />} />
+        <Route
+          path="/home"
+          element={
+            <UserProtectWrapper>
+              <Home />
+            </UserProtectWrapper>
+          }
+        />
         <Route
           path="/captain-home"
           element={
