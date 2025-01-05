@@ -4,8 +4,8 @@ import CaptainDetails from "../components/CaptainDetails";
 import { useGSAP } from "@gsap/react";
 import { useState, useRef } from "react";
 import gsap from "gsap";
-import ConfirmRidePopUp from "../components/ConfirmRidePopUp";
 import RidePopUp from "../components/RidePopUp";
+import ConfirmRidePopUp from "../components/ConfirmRidePopUp";
 
 const CaptainHome = () => {
   const [ridePopupPanel, setRidePopupPanel] = useState(false);
