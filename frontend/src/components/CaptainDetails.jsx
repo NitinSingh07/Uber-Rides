@@ -14,7 +14,7 @@ const CaptainDetails = () => {
             alt=""
           />
           <h4 className="text-lg font-medium capitalize">
-            {/* {captain.fullname.firstname + " " + captain.fullname.lastname} */} nitin pratap
+            {captain.fullname.firstname + " " + captain.fullname.lastname}
           </h4>
         </div>
         <div>
