@@ -4,17 +4,18 @@ const VehiclePanel = (props) => {
   return (
     <div>
       <h5
-        onClick={() => props.setVehiclePanel(false)}
-        className="p-1 w-[93%] absolute top-0 text-center"
+        className="p-1 text-center w-[93%] absolute top-0"
+        onClick={() => {
+          props.setVehiclePanel(false);
+        }}
       >
-        <i className=" text-3xl text-gray-200 ri-arrow-down-wide-line"></i>
+        <i className="text-3xl text-gray-200 ri-arrow-down-wide-line"></i>
       </h5>
-      <h3 className="text-xl text-center font-semibold mb-5">
-        Choose Your Vehicle
-      </h3>
+      <h3 className="text-2xl font-semibold mb-5">Choose a Vehicle</h3>
       <div
         onClick={() => {
           props.setConfirmRidePanel(true);
+          props.selectVehicle("car");
         }}
         className="flex border-2 active:border-black  mb-2 rounded-xl w-full p-3  items-center justify-between"
       >
@@ -25,7 +26,7 @@ const VehiclePanel = (props) => {
         />
         <div className="ml-2 w-1/2">
           <h4 className="font-medium text-base">
-            UberGo
+            UberGo{" "}
             <span>
               <i className="ri-user-3-fill"></i>4
             </span>
@@ -35,22 +36,23 @@ const VehiclePanel = (props) => {
             Affordable, compact rides
           </p>
         </div>
-        <h2 className="text-lg font-semibold">₹193</h2>
+        <h2 className="text-lg font-semibold">₹{props.fare.car}</h2>
       </div>
       <div
         onClick={() => {
           props.setConfirmRidePanel(true);
+          props.selectVehicle("moto");
         }}
-        className="flex border-2 active:border-black  mb-2 rounded-xl w-full p-3  items-center justify-between"
+        className="flex border-2 active:border-black mb-2 rounded-xl w-full p-3  items-center justify-between"
       >
         <img
           className="h-10"
           src="https://www.uber-assets.com/image/upload/f_auto,q_auto:eco,c_fill,h_638,w_956/v1649231091/assets/2c/7fa194-c954-49b2-9c6d-a3b8601370f5/original/Uber_Moto_Orange_312x208_pixels_Mobile.png"
           alt=""
         />
-        <div className="-ml-2 w-1/2">
+        <div className="ml-2 w-1/2">
           <h4 className="font-medium text-base">
-            Moto
+            Moto{" "}
             <span>
               <i className="ri-user-3-fill"></i>1
             </span>
@@ -60,13 +62,14 @@ const VehiclePanel = (props) => {
             Affordable motorcycle rides
           </p>
         </div>
-        <h2 className="text-lg font-semibold">₹103</h2>
+        <h2 className="text-lg font-semibold">₹{props.fare.moto}</h2>
       </div>
       <div
         onClick={() => {
           props.setConfirmRidePanel(true);
+          props.selectVehicle("auto");
         }}
-        className="flex border-2 active:border-black  mb-2 rounded-xl w-full p-3  items-center justify-between"
+        className="flex border-2 active:border-black mb-2 rounded-xl w-full p-3  items-center justify-between"
       >
         <img
           className="h-10"
@@ -75,7 +78,7 @@ const VehiclePanel = (props) => {
         />
         <div className="ml-2 w-1/2">
           <h4 className="font-medium text-base">
-            UberAuto
+            UberAuto{" "}
             <span>
               <i className="ri-user-3-fill"></i>3
             </span>
@@ -85,7 +88,7 @@ const VehiclePanel = (props) => {
             Affordable Auto rides
           </p>
         </div>
-        <h2 className="text-lg font-semibold">₹143</h2>
+        <h2 className="text-lg font-semibold">₹{props.fare.auto}</h2>
       </div>
     </div>
   );
