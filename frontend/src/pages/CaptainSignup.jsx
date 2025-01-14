@@ -37,7 +37,7 @@ const CaptainSignup = () => {
     };
 
     const response = await axios.post(
-      `${import.meta.env.VITE_BASE_URL}/captains/register`,
+      `${import.meta.env.VITE_API_URL}/captains/register`,
       captainData
     );
 
@@ -167,7 +167,7 @@ const CaptainSignup = () => {
               }}
             >
               <option value="" disabled>
-              Vehicle Type
+                Vehicle Type
               </option>
               <option value="car">Car</option>
               <option value="auto">Auto</option>
