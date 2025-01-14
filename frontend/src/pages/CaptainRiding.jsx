@@ -1,10 +1,9 @@
 import React, { useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-// import FinishRide from "../components/FinishRide";
+import FinishRide from "../components/FinishRide";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import FinishRide from "../components/FinishRide";
-// import LiveTracking from "../components/LiveTracking";
+import LiveTracking from "../components/LiveTracking";
 
 const CaptainRiding = () => {
   const [finishRidePanel, setFinishRidePanel] = useState(false);
@@ -44,7 +43,7 @@ const CaptainRiding = () => {
       </div>
 
       <div
-        className="h-1/5 p-6 flex items-center justify-between relative bg-yellow-300 pt-10"
+        className="h-1/5 p-6 flex items-center justify-between relative bg-yellow-400 pt-10"
         onClick={() => {
           setFinishRidePanel(true);
         }}
@@ -68,7 +67,7 @@ const CaptainRiding = () => {
       </div>
 
       <div className="h-screen fixed w-screen top-0 z-[-1]">
-        {/* <LiveTracking /> */}
+        <LiveTracking />
       </div>
     </div>
   );
