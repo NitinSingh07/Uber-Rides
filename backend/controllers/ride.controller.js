@@ -1,13 +1,17 @@
 const rideService = require("../services/ride.service");
 const { validationResult } = require("express-validator");
 const mapService = require("../services/maps.service");
-// const { sendMessageToSocketId } = require("../socket");
+const { sendMessageToSocketId } = require("../socket");
 const rideModel = require("../models/ride.model");
 
 module.exports.createRide = async (req, res) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     return res.status(400).json({ errors: errors.array() });
+  }
+
+  if (!req.user || !req.user.id) {
+    return res.status(401).json({ error: "User not authenticated" });
   }
 
   const { userId, pickup, destination, vehicleType } = req.body;
@@ -46,7 +50,6 @@ module.exports.createRide = async (req, res) => {
     return res.status(500).json({ message: err.message });
   }
 };
-
 module.exports.getFare = async (req, res) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
@@ -137,5 +140,4 @@ module.exports.endRide = async (req, res) => {
   } catch (err) {
     return res.status(500).json({ message: err.message });
   }
-  s;
 };

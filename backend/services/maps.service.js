@@ -54,26 +54,36 @@ module.exports.getDistanceTime = async (origin, destination) => {
 
 module.exports.getAutoCompleteSuggestions = async (input) => {
   if (!input) {
-    throw new Error("query is required");
+    throw new Error("Input query is required");
   }
 
   const apiKey = process.env.GOOGLE_MAPS_API;
+  if (!apiKey) {
+    throw new Error("Google Maps API key is missing");
+  }
+
   const url = `https://maps.googleapis.com/maps/api/place/autocomplete/json?input=${encodeURIComponent(
     input
   )}&key=${apiKey}`;
 
   try {
     const response = await axios.get(url);
+
     if (response.data.status === "OK") {
-      return response.data.predictions
+      const predictions = response.data.predictions || [];
+      return predictions
         .map((prediction) => prediction.description)
         .filter((value) => value);
     } else {
-      throw new Error("Unable to fetch suggestions");
+      console.error(`Google Maps API error: ${response.data.status}`);
+      throw new Error(`API error: ${response.data.status}`);
     }
   } catch (err) {
-    console.error(err);
-    throw err;
+    console.error(
+      `Error fetching autocomplete suggestions for input "${input}":`,
+      err.message
+    );
+    throw new Error("Unable to fetch suggestions");
   }
 };
 
