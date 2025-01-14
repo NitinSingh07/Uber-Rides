@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { CaptainDataContext } from "../context/CaptainContext";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { CaptainDataContext } from "../context/CaptainContext";
 
 const CaptainSignup = () => {
   const navigate = useNavigate();
@@ -37,7 +37,7 @@ const CaptainSignup = () => {
     };
 
     const response = await axios.post(
-      `${import.meta.env.VITE_BASE_URL}/captain/register`,
+      `${import.meta.env.VITE_BASE_URL}/captains/register`,
       captainData
     );
 
@@ -167,11 +167,11 @@ const CaptainSignup = () => {
               }}
             >
               <option value="" disabled>
-                Vehicle Type
+              Vehicle Type
               </option>
               <option value="car">Car</option>
               <option value="auto">Auto</option>
-              <option value="moto">Motorcycle</option>
+              <option value="moto">Moto</option>
             </select>
           </div>
 
