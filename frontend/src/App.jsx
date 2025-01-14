@@ -13,6 +13,8 @@ import CaptainProtectWrapper from "./pages/CaptainProtectWrapper";
 import Riding from "./pages/Riding";
 import CaptainRiding from "./pages/CaptainRiding";
 import CaptainLogout from "./pages/CaptainLogout";
+import "remixicon/fonts/remixicon.css";
+
 
 const App = () => {
   return (
@@ -56,7 +58,6 @@ const App = () => {
           path="/captain-logout"
           element={
             <CaptainProtectWrapper>
-              {" "}
               <CaptainLogout />
             </CaptainProtectWrapper>
           }
