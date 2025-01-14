@@ -1,24 +1,24 @@
 const mongoose = require("mongoose");
-const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
 
 const userSchema = new mongoose.Schema({
   fullname: {
     firstname: {
       type: String,
       required: true,
-      minLength: [3, "Firstname must be at least 3 characters long"],
+      minlength: [3, "First name must be at least 3 characters long"],
     },
     lastname: {
       type: String,
-      minLength: [3, "Lastname must be at least 3 characters long"],
+      minlength: [3, "Last name must be at least 3 characters long"],
     },
   },
   email: {
     type: String,
     required: true,
     unique: true,
-    minLength: [6, "Email must be at least 6 characters long"],
+    minlength: [5, "Email must be at least 5 characters long"],
   },
   password: {
     type: String,
@@ -46,4 +46,5 @@ userSchema.statics.hashPassword = async function (password) {
 };
 
 const userModel = mongoose.model("user", userSchema);
+
 module.exports = userModel;
