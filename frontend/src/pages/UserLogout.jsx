@@ -2,12 +2,12 @@ import React from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-const UserLogout = () => {
-  const navigate = useNavigate();
+export const UserLogout = () => {
   const token = localStorage.getItem("token");
+  const navigate = useNavigate();
 
   axios
-    .get(`${import.meta.env.VITE_BASE_URL}/users/logout`, {
+    .get(`${import.meta.env.VITE_API_URL}/users/logout`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -18,6 +18,7 @@ const UserLogout = () => {
         navigate("/user-login");
       }
     });
+
   return <div>UserLogout</div>;
 };
 

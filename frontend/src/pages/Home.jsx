@@ -41,9 +41,7 @@ const Home = () => {
   const { user } = useContext(UserDataContext);
 
   useEffect(() => {
-    if (user && user._id) {
-      socket.emit("join", { userType: "user", userId: user._id });
-    }
+    socket.emit("join", { userType: "user", userId: user._id });
   }, [user]);
 
   socket.on("ride-confirmed", (ride) => {
@@ -214,10 +212,6 @@ const Home = () => {
         },
       }
     );
-
-    setVehiclePanel(false);
-    setConfirmRidePanel(true);
-    setRide(response.data);
   }
 
   return (
